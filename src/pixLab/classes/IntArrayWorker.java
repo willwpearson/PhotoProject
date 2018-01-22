@@ -100,4 +100,51 @@ public class IntArrayWorker
     }
   }
  
+  public int getColTotal(int colNumber)
+  {
+	  int total = 0;
+	  
+	  for(int row = 0; row < matrix.length; row++)
+	  {
+		  total = total + matrix[row][colNumber];
+	  }
+	  
+	  return total;
+  }
+  
+  public int getLargest()
+  {
+	  int largest = Integer.MIN_VALUE;
+	  
+	  for(int row = 0; row < matrix.length; row++)
+	  {  
+		  for(int col = 0; col < matrix[0].length; row++)
+		  {  
+			  if(matrix[row][col] >= largest)
+			  {
+				  largest = matrix[row][col];
+			  }
+		  }
+	  }
+	  
+	  return largest;
+  }
+  
+  public int getCount(int number)
+  {
+	  int count = 0;
+	  
+	  for(int row = 0; row < matrix.length; row++)
+	  {
+		  for(int col = 0; col < matrix[0].length; row++)
+		  {
+			  if(matrix[row][col] == number)
+			  {
+				  count++;
+			  }
+		  }
+	  }
+	  
+	  return count;
+  }
 }
