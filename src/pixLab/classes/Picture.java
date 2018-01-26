@@ -174,6 +174,13 @@ public class Picture extends SimplePicture
     }   
   }
 
+  public void animeFilter(int startRow, int startCol)
+  {
+	  Pixel fromPixel = null;
+	  Pixel toPixel = null;
+	  Picture anime = new Picture("Transparent Eye Filter.png");
+  }
+  
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
