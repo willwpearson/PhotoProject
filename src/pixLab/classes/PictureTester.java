@@ -18,6 +18,14 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testAnimeFilter()
+  {
+	  Picture sample = new Picture("koala.jpg");
+	  sample.explore();
+	  sample.animeFilter((sample.getHeight()/4) + 25, (sample.getWidth()/4) + 100);
+	  sample.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -59,14 +67,15 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+//    testZeroBlue();
+	  testAnimeFilter();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    testMirrorVertical();
+//    testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
