@@ -40,7 +40,7 @@ public class PictureTester
   {
     Picture temple = new Picture("temple.jpg");
     temple.explore();
-    temple.mirrorTemple();
+    temple.mirrorTemple(0, 100, 20, 200);
     temple.explore();
   }
   
@@ -68,7 +68,7 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
 //    testZeroBlue();
-	  testAnimeFilter();
+//	  testAnimeFilter();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -76,7 +76,7 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
 //    testMirrorVertical();
-    //testMirrorTemple();
+    testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();

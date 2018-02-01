@@ -120,19 +120,19 @@ public class Picture extends SimplePicture
   }
   
   /** Mirror just part of a picture of a temple */
-  public void mirrorTemple()
+  public void mirrorTemple(int startRow, int endRow, int startCol, int mirrorPoint)
   {
-    int mirrorPoint = 276;
+    //int mirrorPoint = 276;
     Pixel leftPixel = null;
     Pixel rightPixel = null;
     int count = 0;
     Pixel[][] pixels = this.getPixels2D();
     
     // loop through the rows
-    for (int row = 27; row < 97; row++)
+    for (int row = startRow; row <= endRow; row++)
     {
       // loop from 13 to just before the mirror point
-      for (int col = 13; col < mirrorPoint; col++)
+      for (int col = startCol; col < mirrorPoint; col++)
       {
         
         leftPixel = pixels[row][col];      
@@ -195,8 +195,6 @@ public class Picture extends SimplePicture
 			  }
 			  fromCol++;
 		  }
-		  
-		  
 		  fromRow++;
 	  }
 	  
