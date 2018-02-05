@@ -200,6 +200,34 @@ public class Picture extends SimplePicture
 	  
   }
   
+  public void glitchWrap()
+  {
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  int rightPosition = 0;
+	  Color holdColor = null;
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (int row = 0; row < pixels.length; row++)
+	  {
+		  for (int col = 0; col < pixels[0].length; col++)
+		  {
+			  leftPixel = pixels[row][col];
+			  holdColor = leftPixel.getColor();
+			  rightPosition = (col + 20);
+			  if(rightPosition < pixels[0].length)
+			  {
+				  rightPixel = pixels[row][rightPosition];
+				  rightPixel.setColor(holdColor);
+			  }
+			  else if(rightPosition - pixels[0].length >= 0)
+			  {
+				  rightPixel = pixels[row][rightPosition % pixels[0].length];
+				  rightPixel.setColor(holdColor);
+			  }
+		  }
+	  }
+  }
+  
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
