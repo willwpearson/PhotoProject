@@ -231,16 +231,21 @@ public class Picture extends SimplePicture
 	  for (int col = 0; col < pixels[0].length; col++)
 	  {
 		  Color [] redColors = new Color[pixels.length];
+		  Pixel [] redAlpha = new Pixel[pixels.length];
 		  Color [] blueColors = new Color[pixels.length];
 		  
 		  for(int row = 0; row < pixels.length; row ++)
 		  {
 			  if((pixels[row][col].getRed() > pixels[row][col].getBlue() && pixels[row][col].getRed() > pixels[row][col].getGreen()))
 			  {
+				  pixels[row][col].setColor(new Color(200,100,100));
+				  pixels[row][col].setAlpha(1);
 				  redColors[row] = pixels[row][col].getColor();
 			  }
 			  else if((pixels[row][col].getBlue() > pixels[row][col].getGreen() && pixels[row][col].getBlue() > pixels[row][col].getGreen()))
 			  {
+				  pixels[row][col].setColor(new Color(100,100,200));
+				  pixels[row][col].setAlpha(1);
 				  blueColors[row] = pixels[row][col].getColor();
 			  }
 		  }
@@ -252,6 +257,7 @@ public class Picture extends SimplePicture
 				  if((row + shiftAmount) % height < pixels.length)
 				  {
 					  pixels[(row + shiftAmount) % height][col].setColor(redColors[row]);
+					  pixels[(row + shiftAmount) % height][col].setAlpha(redColors[row].getAlpha());
 				  }
 			  }
 			  if(blueColors[row] != null)
@@ -259,6 +265,7 @@ public class Picture extends SimplePicture
 				  if((row - shiftAmount) % height >= 0)
 				  {
 					  pixels[(row - shiftAmount) % height][col].setColor(blueColors[row]);
+					  pixels[(row - shiftAmount) % height][col].setAlpha(blueColors[row].getAlpha());
 				  }
 			  }
 		  }

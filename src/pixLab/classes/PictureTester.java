@@ -36,7 +36,7 @@ public class PictureTester
   
   public static void testGlitchShift()
   {
-	  Picture sample = new Picture("caterpillar.jpg");
+	  Picture sample = new Picture("beach.jpg");
 	  sample.explore();
 	  sample.glitchShift();
 	  sample.explore();
