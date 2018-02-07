@@ -34,6 +34,14 @@ public class PictureTester
 	  sample.explore();
   }
   
+  public static void testGlitchShift()
+  {
+	  Picture sample = new Picture("caterpillar.jpg");
+	  sample.explore();
+	  sample.glitchShift();
+	  sample.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -77,7 +85,8 @@ public class PictureTester
     // to run
 //    testZeroBlue();
 //	  testAnimeFilter();
-	  testGlitchWrap();
+//	  testGlitchWrap();
+	  testGlitchShift();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();

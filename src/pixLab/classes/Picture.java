@@ -202,27 +202,64 @@ public class Picture extends SimplePicture
   
   public void glitchWrap()
   {
-	  Pixel leftPixel = null;
-	  Pixel rightPixel = null;
-	  int rightPosition = 0;
-	  Color holdColor = null;
 	  Pixel[][] pixels = this.getPixels2D();
+	  int shiftAmount = (int) (.40 * pixels[0].length);
+	  int width = pixels[0].length;
+	  
 	  for (int row = 0; row < pixels.length; row++)
 	  {
-		  for (int col = 0; col < pixels[0].length; col++)
+		  Color [] currentColors = new Color[pixels[0].length];
+		  
+		  for(int col = 0; col < pixels[row].length; col++)
 		  {
-			  leftPixel = pixels[row][col];
-			  holdColor = leftPixel.getColor();
-			  rightPosition = (col + 20);
-			  if(rightPosition < pixels[0].length)
+			  currentColors[col] = pixels[row][col].getColor();
+		  }
+		  
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  pixels[row][col].setColor(currentColors[(col + shiftAmount) % width]);
+		  }
+	  }
+  }
+  
+  public void glitchShift()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int shiftAmount = (int) (.25 * pixels.length);
+	  int height = pixels[0].length;
+	  
+	  for (int col = 0; col < pixels[0].length; col++)
+	  {
+		  Color [] redColors = new Color[pixels.length];
+		  Color [] blueColors = new Color[pixels.length];
+		  
+		  for(int row = 0; row < pixels.length; row ++)
+		  {
+			  if((pixels[row][col].getRed() > pixels[row][col].getBlue() && pixels[row][col].getRed() > pixels[row][col].getGreen()))
 			  {
-				  rightPixel = pixels[row][rightPosition];
-				  rightPixel.setColor(holdColor);
+				  redColors[row] = pixels[row][col].getColor();
 			  }
-			  else if(rightPosition - pixels[0].length >= 0)
+			  else if((pixels[row][col].getBlue() > pixels[row][col].getGreen() && pixels[row][col].getBlue() > pixels[row][col].getGreen()))
 			  {
-				  rightPixel = pixels[row][rightPosition % pixels[0].length];
-				  rightPixel.setColor(holdColor);
+				  blueColors[row] = pixels[row][col].getColor();
+			  }
+		  }
+		  
+		  for(int row = 0; row < pixels.length; row++)
+		  {
+			  if(redColors[row] != null)
+			  {
+				  if((row + shiftAmount) % height < pixels.length)
+				  {
+					  pixels[(row + shiftAmount) % height][col].setColor(redColors[row]);
+				  }
+			  }
+			  if(blueColors[row] != null)
+			  {
+				  if((row - shiftAmount) % height >= 0)
+				  {
+					  pixels[(row - shiftAmount) % height][col].setColor(blueColors[row]);
+				  }
 			  }
 		  }
 	  }
