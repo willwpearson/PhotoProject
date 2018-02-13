@@ -42,6 +42,11 @@ public class PictureTester
 	  sample.explore();
   }
   
+  public static void testGlitchRectangle()
+  {
+	  
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
