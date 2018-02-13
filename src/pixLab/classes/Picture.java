@@ -227,7 +227,6 @@ public class Picture extends SimplePicture
 	  Pixel[][] pixels = this.getPixels2D();
 	  int shiftRow = (int) (.25 * pixels[0].length);
 	  int shiftCol = (int) (.1 * pixels.length);
-	  int height = pixels[0].length;
 	  
 	  for (int col = 0; col < pixels[0].length; col++)
 	  {  
@@ -243,6 +242,30 @@ public class Picture extends SimplePicture
 					 pixels[temp][col].setRed(pixels[row][col].getRed());
 				 }
 			 }
+		  }
+	  }
+  }
+  
+  public void glitchRectangle()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  int firstRow = pixels.length - 50;
+	  int firstCol = pixels[0].length - 40;
+	  int secondRow = 100;
+	  int secondCol = 50;
+	  for(int i = firstRow; i < pixels.length; i++)
+	  {
+		  for(int j = firstCol; j < pixels[0].length; j++)
+		  {
+			  pixels[i][j].setColor(new Color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255)));
+		  }
+	  }
+	  for(int i = secondRow; i < pixels.length - 50; i ++)
+	  {
+		  for(int j = secondCol; j < pixels[0].length; j++)
+		  {
+			  pixels[i][j].setColor(new Color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255)));
 		  }
 	  }
   }
