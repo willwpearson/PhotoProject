@@ -50,6 +50,16 @@ public class PictureTester
 	  sample.explore();
   }
   
+  public static void testGlitchAll()
+  {
+	  Picture sample = new Picture("beach.jpg");
+	  sample.explore();
+	  sample.glitchShift();
+	  sample.glitchRectangle();
+	  sample.glitchWrap();
+	  sample.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -95,7 +105,8 @@ public class PictureTester
 //	  testAnimeFilter();
 //	  testGlitchWrap();
 //	  testGlitchShift();
-	  testGlitchRectangle();
+//	  testGlitchRectangle();
+	  testGlitchAll();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();

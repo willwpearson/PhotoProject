@@ -263,7 +263,7 @@ public class Picture extends SimplePicture
 	  }
 	  for(int i = secondRow; i < pixels.length - 50; i ++)
 	  {
-		  for(int j = secondCol; j < pixels[0].length; j++)
+		  for(int j = secondCol; j < pixels[0].length - 500; j++)
 		  {
 			  pixels[i][j].setColor(new Color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255)));
 		  }
