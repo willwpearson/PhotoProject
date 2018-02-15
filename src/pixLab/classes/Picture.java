@@ -276,7 +276,7 @@ public class Picture extends SimplePicture
 	    Pixel leftPixel = null;
 	    Pixel rightPixel = null;
 	    int width = (int)(pixels[0].length * .80);
-	    for (int row = 0; row < 40; row++)
+	    for (int row = pixels.length / 2 - 40; row < pixels.length / 2; row++)
 	    {
 	      for (int col = 0; col < width / 2; col++)
 	      {
