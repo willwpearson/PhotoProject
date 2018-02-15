@@ -60,6 +60,14 @@ public class PictureTester
 	  sample.explore();
   }
   
+  public static void testClassFilter()
+  {
+	  Picture sample = new Picture("beach.jpg");
+	  sample.explore();
+	  sample.classMirror();
+	  sample.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -106,7 +114,8 @@ public class PictureTester
 //	  testGlitchWrap();
 //	  testGlitchShift();
 //	  testGlitchRectangle();
-	  testGlitchAll();
+//	  testGlitchAll();
+	  testClassFilter();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();

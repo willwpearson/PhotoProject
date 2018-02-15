@@ -270,6 +270,23 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void classMirror()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	    Pixel leftPixel = null;
+	    Pixel rightPixel = null;
+	    int width = (int)(pixels[0].length * .80);
+	    for (int row = 0; row < 40; row++)
+	    {
+	      for (int col = 0; col < width / 2; col++)
+	      {
+	        leftPixel = pixels[row][col];
+	        rightPixel = pixels[row][width - 1 - col];
+	        rightPixel.setColor(leftPixel.getColor());
+	      }
+	    }
+  }
+  
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
