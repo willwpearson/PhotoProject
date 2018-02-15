@@ -65,6 +65,7 @@ public class PictureTester
 	  Picture sample = new Picture("beach.jpg");
 	  sample.explore();
 	  sample.classMirror();
+	  sample.classAM();
 	  sample.explore();
   }
   

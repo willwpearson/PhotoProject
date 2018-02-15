@@ -287,6 +287,17 @@ public class Picture extends SimplePicture
 	    }
   }
   
+  public void addMessage(String message, int xPos, int yPos, Color messageColor)
+  {
+	  
+  }
+  
+  public void classAM()
+  {
+	  Picture sample = new Picture("beach.jpg");
+	  sample.addMessage("hehe xD", 50, 50, Color.CYAN);
+  }
+  
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
