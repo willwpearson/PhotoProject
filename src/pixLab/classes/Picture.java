@@ -312,21 +312,12 @@ public class Picture extends SimplePicture
 		  {
 			  currentPixel = pixels[row][col];
 			  Double colorDistance = Math.sqrt((currentPixel.getRed() - 255) ^ 2 + (currentPixel.getGreen() - 165) ^ 2 + (currentPixel.getBlue() - 0) ^ 2);
-			  if(colorDistance < 180.0 && !currentPixel.isTransparent())
+			  if(colorDistance < 180.0 && row < bobPixels.length && col < bobPixels[0].length)
 			  {
-				  for(int bobRow = 0; bobRow < bobPixels.length; bobRow++)
-				  {
-					  for(int bobCol = 0; bobCol < bobPixels[0].length; bobCol++)
-					  {
-						  if(bobRow == row && bobCol == col)
-						  {
-							  currentPixel.setColor(bobPixels[bobRow][bobCol].getColor());
-						  }
-					  }
-				  }
+				  currentPixel.setColor(bobPixels[row][col].getColor());
 			  }
 		  }
-	  }
+	  }  
   }
   
   /** Method to create a collage of several pictures */

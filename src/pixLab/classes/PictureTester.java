@@ -65,10 +65,19 @@ public class PictureTester
   
   public static void testClassFilter()
   {
-	  Picture sample = new Picture("swan.jpg");
+	  Picture sample = new Picture("beach.jpg");
 	  sample.explore();
 	  sample.classMirror();
 	  sample.addMessage("Hehe xD", 50, 50, Color.cyan);
+	  sample.bobRoss();
+	  sample.explore();
+	  sample.write("WilliamPearsonClassFilter.jpg");
+  }
+  
+  public static void testBobRoss()
+  {
+	  Picture sample = new Picture("swan.jpg");
+	  sample.explore();
 	  sample.bobRoss();
 	  sample.explore();
   }
@@ -121,6 +130,7 @@ public class PictureTester
 //	  testGlitchRectangle();
 //	  testGlitchAll();
 	  testClassFilter();
+//	  testBobRoss();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
