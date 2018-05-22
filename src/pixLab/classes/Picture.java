@@ -289,13 +289,44 @@ public class Picture extends SimplePicture
   
   public void addMessage(String message, int xPos, int yPos, Color messageColor)
   {
-	  
+	   Graphics2D graphics2d = this.createGraphics();
+	   
+	   graphics2d.setPaint(messageColor);
+	   
+	   graphics2d.setFont(new Font("Helvetica",Font.BOLD,16));
+
+	   graphics2d.drawString(message,xPos,yPos);
+	   
   }
   
-  public void classAM()
+  public void bobRoss()
   {
-	  Picture sample = new Picture("beach.jpg");
-	  sample.addMessage("hehe xD", 50, 50, Color.CYAN);
+	  Picture bobRoss = new Picture("BobRoss.png");
+	  Pixel[][] bobPixels = bobRoss.getPixels2D();
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel currentPixel = null;
+	  
+	  for(int row = 0; row < pixels.length; row++)
+	  {
+		  for(int col = 0; col < pixels[0].length; col++)
+		  {
+			  currentPixel = pixels[row][col];
+			  Double colorDistance = Math.sqrt((currentPixel.getRed() - 255) ^ 2 + (currentPixel.getGreen() - 165) ^ 2 + (currentPixel.getBlue() - 0) ^ 2);
+			  if(colorDistance < 180.0 && !currentPixel.isTransparent())
+			  {
+				  for(int bobRow = 0; bobRow < bobPixels.length; bobRow++)
+				  {
+					  for(int bobCol = 0; bobCol < bobPixels[0].length; bobCol++)
+					  {
+						  if(bobRow == row && bobCol == col)
+						  {
+							  currentPixel.setColor(bobPixels[bobRow][bobCol].getColor());
+						  }
+					  }
+				  }
+			  }
+		  }
+	  }
   }
   
   /** Method to create a collage of several pictures */

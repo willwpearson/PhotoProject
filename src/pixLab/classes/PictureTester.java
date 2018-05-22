@@ -1,4 +1,7 @@
 package pixLab.classes;
+
+import java.awt.Color;
+
 /**
  * This class contains class (static) methods
  * that will help you test the Picture class 
@@ -62,10 +65,11 @@ public class PictureTester
   
   public static void testClassFilter()
   {
-	  Picture sample = new Picture("beach.jpg");
+	  Picture sample = new Picture("swan.jpg");
 	  sample.explore();
 	  sample.classMirror();
-	  sample.classAM();
+	  sample.addMessage("Hehe xD", 50, 50, Color.cyan);
+	  sample.bobRoss();
 	  sample.explore();
   }
   
